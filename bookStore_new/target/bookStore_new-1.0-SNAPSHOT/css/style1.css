@@ -1,0 +1,76 @@
+/*全局样式*/
+* {
+    margin: 0;
+    padding: 0;
+}
+
+fieldset {
+    width: 500px;
+    padding: 20px;
+    margin: 30px;
+    border: 1px solid #ccc;
+}
+
+legend{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#addr-show, #addr-show02,#addr-show03{
+    width: 200px;
+    height: 25px;
+    margin-bottom: 10px;
+}
+
+.btn {
+    width: 80px;
+    height: 30px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    outline: none;
+    background-color: #aaa;
+    margin: 0 20px;
+}
+
+.btn:disabled{
+    background-color:#ccc;
+}
+
+#addr-choice{
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+    margin-bottom: 20px;
+}
+
+#title-wrap li,#addr-wrap li{
+    list-style: none;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+}
+
+#title-wrap li{
+    width:163px;
+    height: 45px;
+    line-height: 45px;
+    margin-bottom: 10px;
+}
+
+.titleSel{
+    border-bottom: 2px solid #23B7E5;
+}
+
+#addr-wrap li{
+    width: 83px;
+    height: 30px;
+    border-radius: 4px;
+    line-height: 30px;
+    font-size: 14px;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+}
+#addr-wrap li:hover{
+    background-color: #23B7E5;
+}

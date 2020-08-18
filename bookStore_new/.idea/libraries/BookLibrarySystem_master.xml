@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="BookLibrarySystem-master">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../../BookLibrarySystem-master" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/../../BookLibrarySystem-master/src/main/java" />
+      <root url="file://$PROJECT_DIR$/../../BookLibrarySystem-master/src/test/java" />
+      <root url="file://$PROJECT_DIR$/../../BookLibrarySystem-master/target/tomcat/work/localEngine/localhost/BookLibrarySystem" />
+    </SOURCES>
+  </library>
+</component>

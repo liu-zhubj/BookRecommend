@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="GBK">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ratings1.csv" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/welcome.html" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/forget.html" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/ok.html" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/search.html" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/wuliu.html" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/css" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/css/bootstrap" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/css/font.css" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/css/fore" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/css/login1.css" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/css/theme1.css" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/css/theme2.css" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/css/theme3.css" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/css/theme4.css" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/css/theme5.css" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/css/xadmin.css" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/img" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/img/fore" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/img/fore/zhifubao.jpg" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/img/product" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/js/bootstrap" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/js/cart.js" charset="UTF-16" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/js/city.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/js/jquery" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/lib" charset="GBK" />
+    <file url="PROJECT" charset="GBK" />
+  </component>
+</project>

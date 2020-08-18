@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.BookNewMapper">
+  <resultMap id="BaseResultMap" type="pojo.BookNew">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="bookname" jdbcType="VARCHAR" property="bookname" />
+    <result column="author" jdbcType="VARCHAR" property="author" />
+    <result column="publicSource" jdbcType="VARCHAR" property="publicsource" />
+    <result column="translator" jdbcType="VARCHAR" property="translator" />
+    <result column="date" jdbcType="VARCHAR" property="date" />
+    <result column="pages" jdbcType="INTEGER" property="pages" />
+    <result column="ISBN" jdbcType="VARCHAR" property="isbn" />
+    <result column="price" jdbcType="REAL" property="price" />
+    <result column="current_price" jdbcType="VARCHAR" property="currentPrice" />
+    <result column="score" jdbcType="REAL" property="score" />
+    <result column="number_of_people" jdbcType="INTEGER" property="numberOfPeople" />
+    <result column="bookinfo" jdbcType="VARCHAR" property="bookinfo" />
+    <result column="author_introduction" jdbcType="VARCHAR" property="authorIntroduction" />
+    <result column="catalog" jdbcType="VARCHAR" property="catalog" />
+    <result column="label" jdbcType="VARCHAR" property="label" />
+    <result column="image" jdbcType="VARCHAR" property="image" />
+    <result column="saleNumber" jdbcType="INTEGER" property="salenumber" />
+    <result column="storeNumber" jdbcType="INTEGER" property="storenumber" />
+    <result column="class_id" jdbcType="INTEGER" property="classId" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, bookname, author, publicSource, translator, date, pages, ISBN, price, current_price, 
+    score, number_of_people, bookinfo, author_introduction, catalog, label, image, saleNumber, 
+    storeNumber, class_id
+  </sql>
+  <select id="selectByExample" parameterType="pojo.BookNewExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from book_new
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from book_new
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from book_new
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="pojo.BookNewExample">
+    delete from book_new
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="pojo.BookNew">
+    insert into book_new (id, bookname, author, 
+      publicSource, translator, date, 
+      pages, ISBN, price, current_price, 
+      score, number_of_people, bookinfo, 
+      author_introduction, catalog, label, 
+      image, saleNumber, storeNumber, 
+      class_id)
+    values (#{id,jdbcType=INTEGER}, #{bookname,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR}, 
+      #{publicsource,jdbcType=VARCHAR}, #{translator,jdbcType=VARCHAR}, #{date,jdbcType=VARCHAR}, 
+      #{pages,jdbcType=INTEGER}, #{isbn,jdbcType=VARCHAR}, #{price,jdbcType=REAL}, #{currentPrice,jdbcType=VARCHAR}, 
+      #{score,jdbcType=REAL}, #{numberOfPeople,jdbcType=INTEGER}, #{bookinfo,jdbcType=VARCHAR}, 
+      #{authorIntroduction,jdbcType=VARCHAR}, #{catalog,jdbcType=VARCHAR}, #{label,jdbcType=VARCHAR}, 
+      #{image,jdbcType=VARCHAR}, #{salenumber,jdbcType=INTEGER}, #{storenumber,jdbcType=INTEGER}, 
+      #{classId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="pojo.BookNew">
+    insert into book_new
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="bookname != null">
+        bookname,
+      </if>
+      <if test="author != null">
+        author,
+      </if>
+      <if test="publicsource != null">
+        publicSource,
+      </if>
+      <if test="translator != null">
+        translator,
+      </if>
+      <if test="date != null">
+        date,
+      </if>
+      <if test="pages != null">
+        pages,
+      </if>
+      <if test="isbn != null">
+        ISBN,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="currentPrice != null">
+        current_price,
+      </if>
+      <if test="score != null">
+        score,
+      </if>
+      <if test="numberOfPeople != null">
+        number_of_people,
+      </if>
+      <if test="bookinfo != null">
+        bookinfo,
+      </if>
+      <if test="authorIntroduction != null">
+        author_introduction,
+      </if>
+      <if test="catalog != null">
+        catalog,
+      </if>
+      <if test="label != null">
+        label,
+      </if>
+      <if test="image != null">
+        image,
+      </if>
+      <if test="salenumber != null">
+        saleNumber,
+      </if>
+      <if test="storenumber != null">
+        storeNumber,
+      </if>
+      <if test="classId != null">
+        class_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="bookname != null">
+        #{bookname,jdbcType=VARCHAR},
+      </if>
+      <if test="author != null">
+        #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="publicsource != null">
+        #{publicsource,jdbcType=VARCHAR},
+      </if>
+      <if test="translator != null">
+        #{translator,jdbcType=VARCHAR},
+      </if>
+      <if test="date != null">
+        #{date,jdbcType=VARCHAR},
+      </if>
+      <if test="pages != null">
+        #{pages,jdbcType=INTEGER},
+      </if>
+      <if test="isbn != null">
+        #{isbn,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=REAL},
+      </if>
+      <if test="currentPrice != null">
+        #{currentPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="score != null">
+        #{score,jdbcType=REAL},
+      </if>
+      <if test="numberOfPeople != null">
+        #{numberOfPeople,jdbcType=INTEGER},
+      </if>
+      <if test="bookinfo != null">
+        #{bookinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="authorIntroduction != null">
+        #{authorIntroduction,jdbcType=VARCHAR},
+      </if>
+      <if test="catalog != null">
+        #{catalog,jdbcType=VARCHAR},
+      </if>
+      <if test="label != null">
+        #{label,jdbcType=VARCHAR},
+      </if>
+      <if test="image != null">
+        #{image,jdbcType=VARCHAR},
+      </if>
+      <if test="salenumber != null">
+        #{salenumber,jdbcType=INTEGER},
+      </if>
+      <if test="storenumber != null">
+        #{storenumber,jdbcType=INTEGER},
+      </if>
+      <if test="classId != null">
+        #{classId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="pojo.BookNewExample" resultType="java.lang.Long">
+    select count(*) from book_new
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update book_new
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.bookname != null">
+        bookname = #{record.bookname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.author != null">
+        author = #{record.author,jdbcType=VARCHAR},
+      </if>
+      <if test="record.publicsource != null">
+        publicSource = #{record.publicsource,jdbcType=VARCHAR},
+      </if>
+      <if test="record.translator != null">
+        translator = #{record.translator,jdbcType=VARCHAR},
+      </if>
+      <if test="record.date != null">
+        date = #{record.date,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pages != null">
+        pages = #{record.pages,jdbcType=INTEGER},
+      </if>
+      <if test="record.isbn != null">
+        ISBN = #{record.isbn,jdbcType=VARCHAR},
+      </if>
+      <if test="record.price != null">
+        price = #{record.price,jdbcType=REAL},
+      </if>
+      <if test="record.currentPrice != null">
+        current_price = #{record.currentPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="record.score != null">
+        score = #{record.score,jdbcType=REAL},
+      </if>
+      <if test="record.numberOfPeople != null">
+        number_of_people = #{record.numberOfPeople,jdbcType=INTEGER},
+      </if>
+      <if test="record.bookinfo != null">
+        bookinfo = #{record.bookinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.authorIntroduction != null">
+        author_introduction = #{record.authorIntroduction,jdbcType=VARCHAR},
+      </if>
+      <if test="record.catalog != null">
+        catalog = #{record.catalog,jdbcType=VARCHAR},
+      </if>
+      <if test="record.label != null">
+        label = #{record.label,jdbcType=VARCHAR},
+      </if>
+      <if test="record.image != null">
+        image = #{record.image,jdbcType=VARCHAR},
+      </if>
+      <if test="record.salenumber != null">
+        saleNumber = #{record.salenumber,jdbcType=INTEGER},
+      </if>
+      <if test="record.storenumber != null">
+        storeNumber = #{record.storenumber,jdbcType=INTEGER},
+      </if>
+      <if test="record.classId != null">
+        class_id = #{record.classId,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update book_new
+    set id = #{record.id,jdbcType=INTEGER},
+      bookname = #{record.bookname,jdbcType=VARCHAR},
+      author = #{record.author,jdbcType=VARCHAR},
+      publicSource = #{record.publicsource,jdbcType=VARCHAR},
+      translator = #{record.translator,jdbcType=VARCHAR},
+      date = #{record.date,jdbcType=VARCHAR},
+      pages = #{record.pages,jdbcType=INTEGER},
+      ISBN = #{record.isbn,jdbcType=VARCHAR},
+      price = #{record.price,jdbcType=REAL},
+      current_price = #{record.currentPrice,jdbcType=VARCHAR},
+      score = #{record.score,jdbcType=REAL},
+      number_of_people = #{record.numberOfPeople,jdbcType=INTEGER},
+      bookinfo = #{record.bookinfo,jdbcType=VARCHAR},
+      author_introduction = #{record.authorIntroduction,jdbcType=VARCHAR},
+      catalog = #{record.catalog,jdbcType=VARCHAR},
+      label = #{record.label,jdbcType=VARCHAR},
+      image = #{record.image,jdbcType=VARCHAR},
+      saleNumber = #{record.salenumber,jdbcType=INTEGER},
+      storeNumber = #{record.storenumber,jdbcType=INTEGER},
+      class_id = #{record.classId,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="pojo.BookNew">
+    update book_new
+    <set>
+      <if test="bookname != null">
+        bookname = #{bookname,jdbcType=VARCHAR},
+      </if>
+      <if test="author != null">
+        author = #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="publicsource != null">
+        publicSource = #{publicsource,jdbcType=VARCHAR},
+      </if>
+      <if test="translator != null">
+        translator = #{translator,jdbcType=VARCHAR},
+      </if>
+      <if test="date != null">
+        date = #{date,jdbcType=VARCHAR},
+      </if>
+      <if test="pages != null">
+        pages = #{pages,jdbcType=INTEGER},
+      </if>
+      <if test="isbn != null">
+        ISBN = #{isbn,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=REAL},
+      </if>
+      <if test="currentPrice != null">
+        current_price = #{currentPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="score != null">
+        score = #{score,jdbcType=REAL},
+      </if>
+      <if test="numberOfPeople != null">
+        number_of_people = #{numberOfPeople,jdbcType=INTEGER},
+      </if>
+      <if test="bookinfo != null">
+        bookinfo = #{bookinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="authorIntroduction != null">
+        author_introduction = #{authorIntroduction,jdbcType=VARCHAR},
+      </if>
+      <if test="catalog != null">
+        catalog = #{catalog,jdbcType=VARCHAR},
+      </if>
+      <if test="label != null">
+        label = #{label,jdbcType=VARCHAR},
+      </if>
+      <if test="image != null">
+        image = #{image,jdbcType=VARCHAR},
+      </if>
+      <if test="salenumber != null">
+        saleNumber = #{salenumber,jdbcType=INTEGER},
+      </if>
+      <if test="storenumber != null">
+        storeNumber = #{storenumber,jdbcType=INTEGER},
+      </if>
+      <if test="classId != null">
+        class_id = #{classId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="pojo.BookNew">
+    update book_new
+    set bookname = #{bookname,jdbcType=VARCHAR},
+      author = #{author,jdbcType=VARCHAR},
+      publicSource = #{publicsource,jdbcType=VARCHAR},
+      translator = #{translator,jdbcType=VARCHAR},
+      date = #{date,jdbcType=VARCHAR},
+      pages = #{pages,jdbcType=INTEGER},
+      ISBN = #{isbn,jdbcType=VARCHAR},
+      price = #{price,jdbcType=REAL},
+      current_price = #{currentPrice,jdbcType=VARCHAR},
+      score = #{score,jdbcType=REAL},
+      number_of_people = #{numberOfPeople,jdbcType=INTEGER},
+      bookinfo = #{bookinfo,jdbcType=VARCHAR},
+      author_introduction = #{authorIntroduction,jdbcType=VARCHAR},
+      catalog = #{catalog,jdbcType=VARCHAR},
+      label = #{label,jdbcType=VARCHAR},
+      image = #{image,jdbcType=VARCHAR},
+      saleNumber = #{salenumber,jdbcType=INTEGER},
+      storeNumber = #{storenumber,jdbcType=INTEGER},
+      class_id = #{classId,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
